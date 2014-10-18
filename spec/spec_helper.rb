@@ -7,6 +7,8 @@ RSpec.configure do |config|
   config.order = 'random'
 
   config.before do
+    Beans.use_cases = []
+
     Beans.configure do |c|
       c.register_repository :bean, Beans::Repositories::InMemory::Bean.new
     end
