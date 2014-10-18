@@ -1,3 +1,4 @@
+require 'beans/repositories/in_memory/base'
 require 'beans/repositories/in_memory/bean'
 
 module Beans
