@@ -1,4 +1,4 @@
-require "beans/version"
+require 'beans/version'
 
 module Beans
 end
