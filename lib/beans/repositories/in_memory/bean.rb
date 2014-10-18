@@ -1,7 +1,7 @@
 module Beans
   module Repositories
     module InMemory
-      class Beans
+      class Bean
         def initialize
           @beans = {}
           @next_id = 1

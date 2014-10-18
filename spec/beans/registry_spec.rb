@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Beans::Repository do
-  subject(:repository) { described_class }
+describe Beans::Registry do
+  subject(:registry) { described_class }
 
   describe '.register' do
     subject { super().register(type, repo) }
@@ -11,7 +11,7 @@ describe Beans::Repository do
 
     it 'adds the repo to the repository' do
       subject
-      expect(repository.repositories).to eq({ test: [1] })
+      expect(registry.repositories).to include({ test: [1] })
     end
   end
 
@@ -19,8 +19,8 @@ describe Beans::Repository do
     subject { super().for(:test) }
 
     before do
-      repository.register(:test, [2])
-      repository.register(:another, [3])
+      registry.register(:test, [2])
+      registry.register(:another, [3])
     end
 
     it 'returns the repository for the given type' do

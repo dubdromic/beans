@@ -1,7 +1,7 @@
-require 'beans/repositories/in_memory/beans'
+require 'beans/repositories/in_memory/bean'
 
 module Beans
-  class Repository
+  class Registry
     def self.register(type, repo)
       repositories[type] = repo
     end

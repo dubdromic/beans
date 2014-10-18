@@ -2,7 +2,7 @@ require 'spec_helper'
 
 TestBean = Struct.new(:id)
 
-describe Beans::Repositories::InMemory::Beans do
+describe Beans::Repositories::InMemory::Bean do
   subject(:repo) { described_class.new }
 
   describe '#all' do

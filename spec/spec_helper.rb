@@ -5,4 +5,10 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
   config.order = 'random'
+
+  config.before do
+    Beans.configure do |c|
+      c.register_repository :bean, Beans::Repositories::InMemory::Bean.new
+    end
+  end
 end
