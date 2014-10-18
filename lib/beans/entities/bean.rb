@@ -1,6 +1,6 @@
 module Beans
   module Entities
-    class Bean < Base
+    class Bean < Entities::Base
       attr_reader :name, :region, :country
 
       def initialize(name, region, country)
