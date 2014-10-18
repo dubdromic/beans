@@ -1,6 +1,9 @@
 require 'beans/version'
 require 'beans/registry'
 
+Dir[File.dirname(__FILE__) + '/beans/entities/**/*.rb'].each { |f| require f }
+Dir[File.dirname(__FILE__) + '/beans/use_cases/**/*.rb'].each { |f| require f }
+
 module Beans
   class << self
     attr_accessor :repo, :use_cases
