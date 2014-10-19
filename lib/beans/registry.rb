@@ -2,19 +2,25 @@ Dir[File.dirname(__FILE__) + '/repositories/**/*.rb'].each { |f| require f }
 
 module Beans
   class Registry
-    def self.register(type, repo)
+    def register(type, repo)
       repositories[type] = repo
     end
 
-    def self.for(type)
+    def for(type)
       repositories.fetch(type) { default }
     end
 
-    def self.repositories
+    def reset
+      repositories.each { |_, r| r.delete_all }
+    end
+
+    def repositories
       @repositories ||= {}
     end
 
-    def self.default
+    private
+
+    def default
       @default ||= Repositories::InMemory::Base.new
     end
   end

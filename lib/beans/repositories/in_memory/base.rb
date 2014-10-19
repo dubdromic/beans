@@ -22,6 +22,10 @@ module Beans
           item
         end
 
+        def delete_all
+          @items = {}
+        end
+
         private
 
         attr_reader :items, :next_id

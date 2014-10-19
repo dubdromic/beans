@@ -6,7 +6,7 @@ describe Beans::UseCases::Brand::BrandAdder do
   let(:name) { 'Test Brand' }
 
   it 'adds a brand to the repo' do
-    expect(Beans::Registry.for(:brand)).to receive(:save)
+    expect(Beans.repo.for(:brand)).to receive(:save)
     subject
   end
 

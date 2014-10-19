@@ -8,7 +8,7 @@ describe Beans do
     let(:repository) { double }
 
     it 'calls Repository.register' do
-      expect(Beans::Registry).to receive(:register).with(type, repository)
+      expect(Beans.repo).to receive(:register).with(type, repository)
       subject
     end
   end
@@ -17,7 +17,7 @@ describe Beans do
     subject { described_class.repo }
 
     it 'returns the registry' do
-      expect(subject).to be(Beans::Registry)
+      expect(subject).to be_an_instance_of(Beans::Registry)
     end
   end
 end

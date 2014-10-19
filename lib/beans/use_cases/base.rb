@@ -16,7 +16,7 @@ module Beans
       private
 
       def repo
-        Registry.for(self.class.type)
+        Beans.repo.for(self.class.type)
       end
     end
   end

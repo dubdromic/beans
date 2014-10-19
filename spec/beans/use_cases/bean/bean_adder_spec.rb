@@ -8,7 +8,7 @@ describe Beans::UseCases::Bean::BeanAdder do
   let(:country) { 'Sumatra' }
 
   it 'adds a bean to the repo' do
-    expect(Beans::Registry.for(:bean)).to receive(:save)
+    expect(Beans.repo.for(:bean)).to receive(:save)
     subject
   end
 

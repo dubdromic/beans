@@ -20,7 +20,7 @@ module Beans
     end
 
     def repo
-      @repo ||= Registry
+      @repo ||= Registry.new
     end
   end
 end
