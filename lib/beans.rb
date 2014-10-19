@@ -6,6 +6,7 @@ Dir[File.dirname(__FILE__) + '/beans/use_cases/**/*.rb'].each { |f| require f }
 
 module Beans
   extend UseCases::Bean
+  extend UseCases::Brand
 
   class << self
     attr_accessor :repo, :use_cases

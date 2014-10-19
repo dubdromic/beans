@@ -5,8 +5,8 @@ module Beans
         BeanFetcher.call
       end
 
-      def add_bean(name, region, country)
-        BeanAdder.call(name, region, country)
+      def add_bean(name, region, country, brand = nil)
+        BeanAdder.call(name, region, country, brand)
       end
     end
   end

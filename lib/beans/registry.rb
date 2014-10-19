@@ -1,5 +1,4 @@
-require 'beans/repositories/in_memory/base'
-require 'beans/repositories/in_memory/bean'
+Dir[File.dirname(__FILE__) + '/repositories/**/*.rb'].each { |f| require f }
 
 module Beans
   class Registry
@@ -8,11 +7,15 @@ module Beans
     end
 
     def self.for(type)
-      repositories[type]
+      repositories.fetch(type) { default }
     end
 
     def self.repositories
       @repositories ||= {}
+    end
+
+    def self.default
+      @default ||= Repositories::InMemory::Base.new
     end
   end
 end
