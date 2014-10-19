@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Beans::UseCases::BeanAdder do
+describe Beans::UseCases::Bean::BeanAdder do
   subject { described_class.call(name, region, country) }
 
   let(:name) { 'Test Bean' }
