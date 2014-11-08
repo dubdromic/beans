@@ -19,6 +19,10 @@ module Beans
       repo.register type, repository
     end
 
+    def default_store(store)
+      repo.default = store
+    end
+
     def repo
       @repo ||= Registry.new
     end

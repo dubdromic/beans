@@ -1,6 +1,17 @@
 require 'spec_helper'
 
 describe Beans do
+  describe '.default_store' do
+    subject { described_class.default_store(store) }
+
+    let(:store) { double }
+
+    it 'calls Repository.default=' do
+      expect(Beans.repo).to receive(:default=).with(store)
+      subject
+    end
+  end
+
   describe '.register_repository' do
     subject { described_class.register_repository(type, repository) }
 

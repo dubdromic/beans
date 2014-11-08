@@ -2,6 +2,8 @@ Dir[File.dirname(__FILE__) + '/repositories/**/*.rb'].each { |f| require f }
 
 module Beans
   class Registry
+    attr_accessor :default
+
     def register(type, repo)
       repositories[type] = repo
     end
