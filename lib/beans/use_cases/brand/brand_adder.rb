@@ -1,6 +1,6 @@
 module Beans
   module UseCases
-    module Brand
+    module Brands
       class BrandAdder < UseCases::Base
         registry_type :brand
 

@@ -54,4 +54,18 @@ describe Beans::Repositories::InMemory::Base do
       expect(subject.id).to eq(1)
     end
   end
+
+  describe '#delete_all' do
+    subject { repo.delete_all }
+
+    let(:item) { TestItem.new }
+
+    before { repo.save item }
+
+    it 'removes all items' do
+      expect(repo.all).to eq([item])
+      subject
+      expect(repo.all).to eq([])
+    end
+  end
 end
