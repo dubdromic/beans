@@ -13,6 +13,7 @@ module Beans
     end
 
     def reset
+      @default = in_memory_repository
       repositories.each { |_, r| r.delete_all }
     end
 
@@ -23,7 +24,11 @@ module Beans
     private
 
     def default
-      @default ||= Repositories::InMemory::Base.new
+      @default ||= in_memory_repository
+    end
+
+    def in_memory_repository
+      Repositories::InMemory::Base.new
     end
   end
 end
