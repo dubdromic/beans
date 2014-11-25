@@ -1,8 +1,8 @@
 require 'beans/version'
 require 'beans/registry'
 
-Dir[File.dirname(__FILE__) + '/beans/entities/**/*.rb'].each { |f| require f }
-Dir[File.dirname(__FILE__) + '/beans/use_cases/**/*.rb'].each { |f| require f }
+Dir[File.dirname(__FILE__) + '/beans/entities/**/*.rb'].sort.each { |f| require f }
+Dir[File.dirname(__FILE__) + '/beans/use_cases/**/*.rb'].sort.each { |f| require f }
 
 module Beans
   extend UseCases::Bean
