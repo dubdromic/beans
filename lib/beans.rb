@@ -1,8 +1,13 @@
+require 'awesome_print'
+
 require 'beans/version'
 require 'beans/registry'
 
-Dir[File.dirname(__FILE__) + '/beans/entities/**/*.rb'].sort.each { |f| require f }
-Dir[File.dirname(__FILE__) + '/beans/use_cases/**/*.rb'].sort.each { |f| require f }
+to_include = %w(/beans/entities/**/*.rb /beans/use_cases/**/*.rb)
+
+to_include.each do |uri|
+  Dir[File.dirname(__FILE__) + uri].sort.each { |f| require f }
+end
 
 module Beans
   extend UseCases::Bean

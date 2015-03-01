@@ -1,0 +1,14 @@
+AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+AlignHash:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+Documentation:
+  Enabled: false
+DoubleNegation:
+  Enabled: false
+LineLength:
+  Max: 100
+NumericLiterals:
+  Enabled: false
