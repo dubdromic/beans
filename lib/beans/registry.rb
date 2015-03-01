@@ -9,11 +9,12 @@ module Beans
     end
 
     def for(type)
-      repositories.fetch(type) { default }
+      default_for(type) unless repositories.key?(type)
+      repositories.fetch(type) { default_repository }
     end
 
     def reset
-      @default = in_memory_repository
+      @default = default_repository
       repositories.each { |_, r| r.delete_all }
     end
 
@@ -23,11 +24,11 @@ module Beans
 
     private
 
-    def default
-      @default ||= in_memory_repository
+    def default_for(type)
+      register(type, default_repository)
     end
 
-    def in_memory_repository
+    def default_repository
       Repositories::InMemory::Base.new
     end
   end

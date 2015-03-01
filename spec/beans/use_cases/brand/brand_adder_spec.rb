@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Beans::UseCases::Brands::BrandAdder do
+describe Beans::UseCases::Brand::BrandAdder do
   subject { described_class.call(name) }
 
   let(:name) { 'Test Brand' }

@@ -24,6 +24,7 @@ module Beans
 
         def delete_all
           @items = {}
+          @next_id = 1
         end
 
         private
