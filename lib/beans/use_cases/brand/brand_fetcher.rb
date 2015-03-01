@@ -1,8 +1,8 @@
 module Beans
   module UseCases
-    module Bean
-      class BeanFetcher < UseCases::Base
-        registry_type :bean
+    module Brand
+      class BrandFetcher < UseCases::Base
+        registry_type :brand
 
         def call(id = nil)
           id ? repo.find(id) : repo.all
