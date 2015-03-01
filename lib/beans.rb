@@ -12,6 +12,7 @@ end
 module Beans
   extend UseCases::Bean
   extend UseCases::Brand
+  extend UseCases::Brew
 
   class << self
     attr_accessor :repo, :use_cases
