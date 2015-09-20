@@ -8,7 +8,7 @@ Current version: 0.0.1. It doesn't work yet. Like any good software suite this w
 
 ## Usage
 
-Configure your repositories (an in-memory one is provided). Repositories should align with an interface that's ill-defined in `lib/beans/repositories/in_memory/base.rb`. This could (and will) change at any time.
+Configure your repositories (an in-memory one is provided and used by default). Repositories should align with an interface that's (ill-)defined in `lib/beans/repositories/in_memory/base.rb`. This could (and will) change at any time.
 
 ```
 Beans.configure do |config|
@@ -18,8 +18,12 @@ Beans.configure do |config|
 end
 ```
 
-And then use it? Again, this doesn't really work.
+And then use it.
 
-`Beans.add_bean 'Awesome Beans', 'Lake Toba', 'Sumatra'`
+```Ruby
+Beans.add_bean 'Awesome Beans', 'Lake Toba', 'Sumatra'
+Beans.fetch_beans =>
+  [#<Beans::Entities::Bean:0x00561210e4fbd8 @brand=nil, @country="Sumatra", @id=1, @name="Awesome Beans", @region="Lake Toba">]
+```
 
 :thumbsup:
