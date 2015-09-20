@@ -21,13 +21,59 @@ describe Beans::Registry do
   describe '.for' do
     subject { super().for(:another) }
 
+    context 'type registered' do
+      before do
+        registry.register(:test, test_double)
+        registry.register(:another, another_double)
+      end
+
+      it 'returns the repository for the given type' do
+        expect(subject).to eq(another_double)
+      end
+    end
+
+    context 'type not registered' do
+      it 'returns the default repository' do
+        expect(subject).to be_an_instance_of(Beans::Repositories::InMemory::Base)
+      end
+    end
+  end
+
+  describe '.reset 'do
+    subject { super().reset }
+
     before do
       registry.register(:test, test_double)
       registry.register(:another, another_double)
     end
 
-    it 'returns the repository for the given type' do
-      expect(subject).to eq(another_double)
+    it 'resets the default repository' do
+      expect { subject }
+        .to change { registry.default }.to be_an_instance_of(Beans::Repositories::InMemory::Base)
+    end
+
+    it 'calls #delete_all on existing repositories' do
+      expect(test_double).to receive(:delete_all)
+      expect(another_double).to receive(:delete_all)
+      subject
+    end
+
+    it 'removes all existing repositories' do
+      subject
+      expect(registry.repositories).to eq({})
+    end
+  end
+
+  describe '#repositories' do
+    subject { super().repositories }
+
+    before do
+      registry.register(:test, test_double)
+      registry.register(:another, another_double)
+    end
+
+    it 'returns the registered repositories' do
+      expect(subject).to eq(test: test_double, another: another_double)
     end
   end
 end

@@ -16,6 +16,7 @@ module Beans
     def reset
       @default = default_repository
       repositories.each { |_, r| r.delete_all }
+      @repositories = {}
     end
 
     def repositories
